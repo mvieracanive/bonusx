@@ -14,13 +14,13 @@
 
 Repository based on [Nest](https://github.com/nestjs/nest) framework with typescript.
 
-This repository is based on Template for microservices, it communicates with the other services/microservices through a message broker.
+The repository serves as a template for microservices and communicates with other services/microservices through a message broker.
 
 ## Batteries included
 
-The message broker is included for development purpose, in production it is an external instance.
+The message broker is included for development purposes. In production, it should be an external instance.
 
-## <a id="running">🔗</a> Running the containers
+## <a id="running">🔗</a> Running
 
 ```bash
 # service run in watch mode
@@ -37,5 +37,9 @@ docker-compose down
 docker-compose exec -it bx_file_transfer_service yarn test
 
 ```
+
+## <a id="license">🔗</a> License
+
+[GPL-3.0 license](LICENSE)
 
 ---
