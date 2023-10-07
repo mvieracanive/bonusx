@@ -2,7 +2,6 @@ import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { WinstonModule } from 'nest-winston';
 import { loggerConfig } from '../configs/logger';
-import { SentryConfigModule } from './sentry.module';
 
 @Module({
   imports: [
@@ -10,11 +9,10 @@ import { SentryConfigModule } from './sentry.module';
       isGlobal: true,
     }),
     WinstonModule.forRoot(loggerConfig),
-    SentryConfigModule,
   ],
   controllers: [],
   providers: [],
-  exports: [WinstonModule, SentryConfigModule, ConfigModule],
+  exports: [WinstonModule, ConfigModule],
 })
 export class GlobalModule {
   static forRoot(options?): DynamicModule {

@@ -1,10 +1,9 @@
-import { Catch, Controller, Inject, Logger } from '@nestjs/common';
+import { Controller, Inject, Logger } from '@nestjs/common';
 import { Ctx, MessagePattern, MqttContext, Payload } from '@nestjs/microservices';
 import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 import { TopicForSubscriptionCollection } from '../../configs/env';
 import { ExampleDto } from '../../dtos/example/example-dto';
 
-@Catch()
 @Controller('/example')
 export class ExampleController {
   constructor(@Inject(WINSTON_MODULE_NEST_PROVIDER) private _logger: Logger) {}
