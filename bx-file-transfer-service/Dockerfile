@@ -1,11 +1,12 @@
 FROM node:18.16.1
 
-WORKDIR /bx-file-transfer-service
+WORKDIR /usr/src/bx-file-transfer-service
 
-COPY package.json ./
-COPY . .
+COPY package.json .
+COPY yarn.lock .
 
-RUN npm install -g yarn --force
 RUN yarn
+
+COPY . .
 
 CMD ["yarn", "start:dev"]

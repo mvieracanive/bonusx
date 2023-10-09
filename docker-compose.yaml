@@ -7,11 +7,11 @@ services:
         build:
             context: ./bx-file-transfer-service
             dockerfile: ./Dockerfile
-        working_dir: /bx-file-transfer-service
         ports:
             - 3000:3000
         volumes:
-            - ./bx-file-transfer-service:/bx-file-transfer-service
+            - ./bx-file-transfer-service:/usr/src/bx-file-transfer-service
+            - /usr/src/bx-file-transfer-service/node_modules
         depends_on:
             - bx_broker
         networks:
