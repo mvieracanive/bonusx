@@ -10,8 +10,8 @@ services:
         ports:
             - 3000:3000
         volumes:
-            - ./bx-file-transfer-service:/usr/src/bx-file-transfer-service
-            - /usr/src/bx-file-transfer-service/node_modules
+            - ./bx-file-transfer-service:/bx-file-transfer-service
+            - /bx-file-transfer-service/node_modules
         depends_on:
             - bx_broker
         networks:
@@ -42,9 +42,16 @@ services:
         networks:
             - bx_network
 
+    bx_data_storage:
+        image: scireum/s3-ninja
+        hostname: bucket.local
+        ports:
+            - '9000:9000'
+        volumes:
+            - ./bx-data-storage:/data
+        networks:
+            - bx_network
+
 networks:
     bx_network:
-        ipam:
-            driver: default
-            config:
-                - subnet: 172.28.0.0/16
+        driver: bridge
