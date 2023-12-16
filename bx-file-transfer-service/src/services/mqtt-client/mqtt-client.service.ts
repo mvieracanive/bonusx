@@ -14,6 +14,6 @@ export class MqttClientService implements IMqttClientService {
   send<Message>(channel: string, message: Message) {
     const record = new MqttRecordBuilder<Message>(message).setRetain(false).setQoS(0).build();
 
-    return this._client.emit<string, MqttRecord<Message>>(channel, record);
+    return this._client.send<string, MqttRecord<Message>>(channel, record);
   }
 }
