@@ -18,8 +18,6 @@ async function bootstrap() {
     ...mqttConfig,
   });
 
-  console.log(mqttConfig, "MQTT sdlkfjsdf")
-
   const loggerService = app.get(WINSTON_MODULE_NEST_PROVIDER);
 
   const exceptionFactory = function (errors: ValidationError[]) {
